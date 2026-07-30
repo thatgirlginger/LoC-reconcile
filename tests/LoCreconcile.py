@@ -6,7 +6,7 @@
 #   Digitization Program Office
 #   Office of the Chief Information Officer
 #   Smithsonian Institution
-# 
+#TODO: add note here when ready for pull request
 
 from flask import Flask
 from flask import request
@@ -28,6 +28,13 @@ import logging
 # from reconciliation import SearchLoC, Recon
 
 
+logging.basicConfig(
+    filename="reconcile.log",
+    filemode="a",
+    format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
+    level=logging.DEBUG
+)
+
 sys.setrecursionlimit(10000)
 ver = "2023-12-12"
 
@@ -42,8 +49,10 @@ app.config.from_mapping(config)
 cache = Cache(app)
 
 
+logging.info("\n\nstarting new test")
+
 class Recon:
-    
+
     def __init__(self, score):
         """Turns the raw lists of scores and term-id pairs into objects"""
         self.score = score[0]
@@ -70,6 +79,8 @@ class Recon:
             return sorted(recon_scores,
                           key=lambda x: x[0],
                           reverse=True)[:limit]
+        if recon_scores == False or recon_scores == None or recon_scores == 0:
+            logging.debug("returned a non-value in function reconcile, class Recon")
         return recon_scores[:limit]
 
 
@@ -107,10 +118,14 @@ class SearchLoC:
             self.term_type = ''
 
     def search_terms(self):
-        """Looks for a term using the suggest API"""
-        self.LOGGER.debug("HTTP request on Suggest API for {}".format(self.term))
-        response = requests.get(self.suggest_uri + quote(self.term))
-        result = response.json()
+        """Looks for a term using the suggest API, implements both left-anchored and keyword searches"""
+        # tested, works
+        logging.DEBUG(f"HTTP request on Suggest API for {self.term}")
+        kwresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
+        laresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
+        full_result = kwresponse.json() + laresponse.json()
+        result = []
+        [result.append(a) for a in full_result if a not in result]
         return self.__process_results(result)
 
     @staticmethod
@@ -124,13 +139,7 @@ class SearchLoC:
                 id_pairs.append((term_name, term_id))
         return id_pairs
 
-    def did_you_mean(self):
-        dym_base = "https://id.loc.gov/authorities" + self.term_type + "/didyoumean/?label="
-        dym_url = dym_base + quote(self.term)
-        self.LOGGER.debug("querying didyoumean with URL {}".format(str(dym_url)))
-        response = requests.get(dym_url)
-        tree = etree.fromstring(response.content)
-        return [(child.text, child.attrib['uri']) for child in iter(tree)]
+    
 
     def search_terms_raw(self):
         """Switches to looking for a term by scraping the first web page of search results"""
@@ -152,17 +161,17 @@ class SearchLoC:
                 id_pairs.append((heading, term_id))
         return id_pairs
 
-    def full_search(self, suggest=True, didyoumean=True, scrape=True):
-        """implement all 3 search methods (suggest, did you mean, and web sraping"""
+    def full_search(self, suggest=True, scrape=True):
+        """implements left-anchored and keyword suggestions, as well as scraping"""
         results = None
-        if not suggest and not didyoumean and not scrape:
+        if not suggest and not scrape:
             return results
-        if suggest:
+        if suggest and not scrape:
             results = self.search_terms()  # start with suggest
-        if not results and didyoumean:
-            results = self.did_you_mean()
-        if not results and scrape:
+        if not suggest and scrape:
             results = self.search_terms_raw()  # wasn't found with "suggest", try scraping first page instead
+        if suggest and scrape:
+            results = self.search_terms() + self.search_terms_raw()
         return results
 
     def get_term_uri(self, term_id, extension="html", include_ext=False):
@@ -218,7 +227,7 @@ def preprocess(token):
         token = token[:-1]
     return token.lower().lstrip().rstrip().replace("--", " ").replace(", ", " ")\
         .replace("\t", "").replace("\n", "")
-    # may add other preprocessing steps later
+    #TODO: add possible stopwords, word stem modes, etc
 
 
 @cache.cached()
@@ -226,7 +235,6 @@ def search(search_in, query_type='', limit=3):
     scores = []
     term = preprocess(search_in)
     query_result = SearchLoC(term=term, term_type=query_type.lower()).full_search(suggest=True,
-                                                                                  didyoumean=True,
                                                                                   scrape=True)
     recon_ = Recon.reconcile(search_in, query_result, sort=True, limit=limit)
     for r in recon_:
@@ -338,12 +346,14 @@ def recon_preview():
     return str(page_preview)
 
 
+#TODO: code an 'intensive' mode that removes stopwords and searches individual terms
+
 @app.route("/")
 def render_index():
     return "LoC Reconciliation Service is running at this port!"
 
 
-if __name__ == "__main__":
-    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
-    app.run(debug=False)
+#if __name__ == "__main__":
+#    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
+#    app.run(debug=False)
     # default service URL: http://127.0.0.1:5000/reconcile/LoC
