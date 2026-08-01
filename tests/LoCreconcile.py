@@ -229,7 +229,7 @@ def preprocess(token):
     #TODO: add possible stopwords, word stem modes, etc
 
 
-@cache.cached()
+# @cache.cached()
 def search(search_in, query_type='', limit=100):
     #limit just for debug purposes, change back
     scores = []
@@ -254,8 +254,9 @@ def search(search_in, query_type='', limit=100):
     # begin score logging here
     dbug = []
     for score in scores:
-        dbug.append(f"{score[id]}\t{score[name]}\t{score[score]}")
+        dbug.append(f"{score["id"]}\t{score["name"]}\t{score["score"]}")
     logging.info(f"search scoring output for {search_in}:\n {"".join(dbug)}")
+    
     return scores
 
 
@@ -277,8 +278,8 @@ def reconcile():
     if queries:
         logging.info("queries: " + str(queries))
         queries = json.loads(queries)
-        qtype = queries.get('type')
-        logging.info(f"output qtype: {qtype}")
+        # qtype = queries.get('type')
+        # logging.info(f"output qtype: {qtype}")
         results = {}
         for (key, query) in queries.items():
             logging.info(f"FROM LOOP IN LINE 273: {query}")
@@ -286,18 +287,19 @@ def reconcile():
             logging.info(f"output qtype {qtype}")
             if qtype is None:
                 return jsonpify(metadata)
-            # limit = 3
-            # if 'limit' in query:
-            #     limit = int(query['limit'])
-            data = search(query['query'], query_type=qtype) #, limit=limit)
+            limit = 100
+            if 'limit' in query:
+                limit = int(query['limit'])
+            data = search(query['query'], query_type=qtype, limit=limit)
             results[key] = {"result": data}
+        logging.debug(f"results being handed to openrefine: {results}")
         return jsonpify(results)
     return jsonpify(metadata)
 
 
-@cache.memoize()
+#@cache.memoize()
 def url_prev(url):
-    response = requests.get(url)
+    response = requests.get('url')
     soup = BeautifulSoup(response.text, 'html.parser')
     text_body = soup.find(id="tab1")
     text_body.find("div", class_="bf-render-right").decompose()
