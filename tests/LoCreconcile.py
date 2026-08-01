@@ -25,6 +25,7 @@ from urllib.parse import quote
 from lxml import etree
 from bs4 import BeautifulSoup
 import logging
+import json
 # from reconciliation import SearchLoC, Recon
 
 
@@ -86,9 +87,6 @@ class Recon:
 
 class SearchLoC:
 
-    logging.basicConfig(level=logging.INFO)
-    LOGGER = logging.getLogger(__name__)
-
     def __init__(self, term, term_type=''):
         self._term_type = term_type
         self.term = term
@@ -120,7 +118,7 @@ class SearchLoC:
     def search_terms(self):
         """Looks for a term using the suggest API, implements both left-anchored and keyword searches"""
         # tested, works
-        logging.DEBUG(f"HTTP request on Suggest API for {self.term}")
+        logging.debug(f"HTTP request on Suggest API for {self.term}")
         kwresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
         laresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
         full_result = kwresponse.json() + laresponse.json()
@@ -143,7 +141,7 @@ class SearchLoC:
 
     def search_terms_raw(self):
         """Switches to looking for a term by scraping the first web page of search results"""
-        self.LOGGER.debug("Web scraping page 1 of web results...".format(self.term))
+        logging.debug(f"Web scraping page 1 of web results for {self.term}")
         search_uri = self.__raw_uri_start + quote(self.term) + self.__raw_uri_end
         response = requests.get(search_uri)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -231,7 +229,8 @@ def preprocess(token):
 
 
 @cache.cached()
-def search(search_in, query_type='', limit=3):
+def search(search_in, query_type='', limit=100):
+    #limit just for debug purposes, change back
     scores = []
     term = preprocess(search_in)
     query_result = SearchLoC(term=term, term_type=query_type.lower()).full_search(suggest=True,
@@ -266,20 +265,24 @@ def jsonpify(obj):
 
 @app.route("/reconcile/LoC", methods=['POST', 'GET'])
 def reconcile():
-    queries = request.form.get('queries')
+    queries = request.form.getlist('queries')
+    logging.debug
+    logging.debug(f"beginning of reconciliation function for input: {queries}")
     if queries:
-        # logging.info("queries: " + str(queries))
         queries = json.loads(queries)
+        qtype = queries.get('type')
+        logging.info(f"output qtype: {qtype}")
         results = {}
         for (key, query) in queries.items():
+            logging.info(f"FROM LOOP IN LINE 273: {query}")
             qtype = query.get('type')
+            logging.info(f"output qtype: {qtype}")
             if qtype is None:
                 return jsonpify(metadata)
-            limit = 3
-            if 'limit' in query:
-                limit = int(query['limit'])
-            data = search(query['query'], query_type=qtype, limit=limit)
-            results[key] = {"result": data}
+            #if 'limit' in query:
+            #    limit = int(query['limit'])
+            data = search(query['query'], query_type=qtype)
+            results[key] = {'result':data}
         return jsonpify(results)
     return jsonpify(metadata)
 
@@ -353,7 +356,7 @@ def render_index():
     return "LoC Reconciliation Service is running at this port!"
 
 
-#if __name__ == "__main__":
-#    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
-#    app.run(debug=False)
-    # default service URL: http://127.0.0.1:5000/reconcile/LoC
+if __name__ == "__main__":
+    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
+    app.run(debug=True)
+    #default service URL: http://127.0.0.1:5000/reconcile/LoC
