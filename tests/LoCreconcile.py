@@ -25,6 +25,7 @@ from urllib.parse import quote
 from lxml import etree
 from bs4 import BeautifulSoup
 import logging
+import json
 # from reconciliation import SearchLoC, Recon
 
 
@@ -143,7 +144,7 @@ class SearchLoC:
 
     def search_terms_raw(self):
         """Switches to looking for a term by scraping the first web page of search results"""
-        self.LOGGER.debug("Web scraping page 1 of web results...".format(self.term))
+        logging.debug("Web scraping page 1 of web results...".format(self.term))
         search_uri = self.__raw_uri_start + quote(self.term) + self.__raw_uri_end
         response = requests.get(search_uri)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -231,7 +232,8 @@ def preprocess(token):
 
 
 @cache.cached()
-def search(search_in, query_type='', limit=3):
+def search(search_in, query_type='', limit=100):
+    # limit for debugging purposes
     scores = []
     term = preprocess(search_in)
     query_result = SearchLoC(term=term, term_type=query_type.lower()).full_search(suggest=True,
@@ -251,6 +253,11 @@ def search(search_in, query_type='', limit=3):
             "match": match,
             "type": metadata['defaultTypes'],
         })
+    # begin score logging here
+    dbug = []
+    for score in scores:
+        dbug.append(f"{score[id]}\t{score[name]}\t{score[score]}")
+    logging.info(f"search scoring output for {search_in}:\n {"".join(dbug)}")
     return scores
 
 
@@ -268,12 +275,14 @@ def jsonpify(obj):
 @app.route("/reconcile/LoC", methods=['POST', 'GET'])
 def reconcile():
     queries = request.form.get('queries')
+    logging.info(f"beginning of reconciliation function for input: {queries}")
     if queries:
         logging.info("queries: " + str(queries))
         queries = json.loads(queries)
         results = {}
         for (key, query) in queries.items():
             qtype = query.get('type')
+            logging.info(f"output qtype {qtype}")
             if qtype is None:
                 return jsonpify(metadata)
             # limit = 3
