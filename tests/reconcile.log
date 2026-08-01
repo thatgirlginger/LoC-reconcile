@@ -2712,3 +2712,256 @@ starting new test
 starting new test
 08/01/2026 04:06:06 PM  * Debugger is active!
 08/01/2026 04:06:06 PM  * Debugger PIN: 133-657-144
+08/01/2026 06:17:31 PM 
+
+starting new test
+08/01/2026 06:17:31 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 06:17:31 PM [33mPress CTRL+C to quit[0m
+08/01/2026 06:17:31 PM  * Restarting with stat
+08/01/2026 06:17:31 PM 
+
+starting new test
+08/01/2026 06:17:31 PM  * Debugger is active!
+08/01/2026 06:17:31 PM  * Debugger PIN: 133-657-144
+08/01/2026 06:17:34 PM 127.0.0.1 - - [01/Aug/2026 18:17:34] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1[0m" 500 -
+08/01/2026 06:17:34 PM 127.0.0.1 - - [01/Aug/2026 18:17:34] "GET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+08/01/2026 06:17:34 PM 127.0.0.1 - - [01/Aug/2026 18:17:34] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:17:34 PM 127.0.0.1 - - [01/Aug/2026 18:17:34] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:18:31 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 06:18:31 PM  * Restarting with stat
+08/01/2026 06:18:31 PM 
+
+starting new test
+08/01/2026 06:18:31 PM  * Debugger is active!
+08/01/2026 06:18:31 PM  * Debugger PIN: 133-657-144
+08/01/2026 06:18:39 PM 127.0.0.1 - - [01/Aug/2026 18:18:39] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1[0m" 500 -
+08/01/2026 06:18:39 PM 127.0.0.1 - - [01/Aug/2026 18:18:39] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:18:39 PM 127.0.0.1 - - [01/Aug/2026 18:18:39] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:18:39 PM 127.0.0.1 - - [01/Aug/2026 18:18:39] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:18:40 PM 127.0.0.1 - - [01/Aug/2026 18:18:40] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:18:40 PM 127.0.0.1 - - [01/Aug/2026 18:18:40] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:20:06 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 06:20:06 PM  * Restarting with stat
+08/01/2026 06:20:06 PM 
+
+starting new test
+08/01/2026 06:20:43 PM 
+
+starting new test
+08/01/2026 06:20:43 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 06:20:43 PM [33mPress CTRL+C to quit[0m
+08/01/2026 06:20:43 PM  * Restarting with stat
+08/01/2026 06:20:44 PM 
+
+starting new test
+08/01/2026 06:20:44 PM  * Debugger is active!
+08/01/2026 06:20:44 PM  * Debugger PIN: 133-657-144
+08/01/2026 06:20:59 PM beginning of reconciliation function for input: {"q1":{"query":"baking","limit":3},"q2":{"query":"exh1bit","limit":3},"q3":{"query":"Philip Glass","limit":3},"q4":{"query":"Mormonism","limit":3},"q5":{"query":"NIVDIA","limit":3},"q6":{"query":"bakery","limit":3},"q7":{"query":"pharmacies","limit":3},"q8":{"query":"History, Women's, Reform","limit":3},"q0":{"query":"Frigate","limit":3}}
+08/01/2026 06:20:59 PM queries: {"q1":{"query":"baking","limit":3},"q2":{"query":"exh1bit","limit":3},"q3":{"query":"Philip Glass","limit":3},"q4":{"query":"Mormonism","limit":3},"q5":{"query":"NIVDIA","limit":3},"q6":{"query":"bakery","limit":3},"q7":{"query":"pharmacies","limit":3},"q8":{"query":"History, Women's, Reform","limit":3},"q0":{"query":"Frigate","limit":3}}
+08/01/2026 06:20:59 PM FROM LOOP IN LINE 273: {'query': 'baking', 'limit': 3}
+08/01/2026 06:20:59 PM output qtype None
+08/01/2026 06:20:59 PM 127.0.0.1 - - [01/Aug/2026 18:20:59] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 06:21:02 PM beginning of reconciliation function for input: {"q0":{"query":"Philip Glass","type":"LoC","type_strict":"should"},"q1":{"query":"Frigate","type":"LoC","type_strict":"should"},"q2":{"query":"History, Women's, Reform","type":"LoC","type_strict":"should"},"q3":{"query":"NIVDIA","type":"LoC","type_strict":"should"},"q4":{"query":"baking","type":"LoC","type_strict":"should"},"q5":{"query":"exh1bit","type":"LoC","type_strict":"should"},"q6":{"query":"pharmacies","type":"LoC","type_strict":"should"},"q7":{"query":"bakery","type":"LoC","type_strict":"should"},"q8":{"query":"Mormonism","type":"LoC","type_strict":"should"}}
+08/01/2026 06:21:02 PM queries: {"q0":{"query":"Philip Glass","type":"LoC","type_strict":"should"},"q1":{"query":"Frigate","type":"LoC","type_strict":"should"},"q2":{"query":"History, Women's, Reform","type":"LoC","type_strict":"should"},"q3":{"query":"NIVDIA","type":"LoC","type_strict":"should"},"q4":{"query":"baking","type":"LoC","type_strict":"should"},"q5":{"query":"exh1bit","type":"LoC","type_strict":"should"},"q6":{"query":"pharmacies","type":"LoC","type_strict":"should"},"q7":{"query":"bakery","type":"LoC","type_strict":"should"},"q8":{"query":"Mormonism","type":"LoC","type_strict":"should"}}
+08/01/2026 06:21:02 PM FROM LOOP IN LINE 273: {'query': 'Philip Glass', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:02 PM output qtype LoC
+08/01/2026 06:21:02 PM HTTP request on Suggest API for philip glass
+08/01/2026 06:21:02 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:02 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=philip%20glass&searchtype=keyword&count=250 HTTP/1.1" 200 105
+08/01/2026 06:21:02 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:02 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=philip%20glass&searchtype=keyword&count=250 HTTP/1.1" 200 105
+08/01/2026 06:21:02 PM Web scraping page 1 of web results for philip glass
+08/01/2026 06:21:02 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:02 PM https://id.loc.gov:443 "GET /search/?q=philip%20glass&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:02 PM Recon object: Philip Glass Ensemble (0.727)
+08/01/2026 06:21:02 PM search scoring output for Philip Glass:
+ http://id.loc.gov/authorities/names/n80100092	Philip Glass Ensemble	0.727
+08/01/2026 06:21:02 PM FROM LOOP IN LINE 273: {'query': 'Frigate', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:02 PM output qtype LoC
+08/01/2026 06:21:02 PM HTTP request on Suggest API for frigate
+08/01/2026 06:21:02 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:02 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=frigate&searchtype=keyword&count=250 HTTP/1.1" 200 468
+08/01/2026 06:21:02 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=frigate&searchtype=keyword&count=250 HTTP/1.1" 200 468
+08/01/2026 06:21:03 PM Web scraping page 1 of web results for frigate
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /search/?q=frigate&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:03 PM Recon object: Frigates (0.933)
+08/01/2026 06:21:03 PM Recon object: Frigate-birds (0.7)
+08/01/2026 06:21:03 PM Recon object: Frigates--Models (0.609)
+08/01/2026 06:21:03 PM Recon object: Frigate-birds, Fossil (0.5)
+08/01/2026 06:21:03 PM Recon object: Frigate Bay, Battle of, Saint Kitts and Nevis, 1782 (0.241)
+08/01/2026 06:21:03 PM search scoring output for Frigate:
+ http://id.loc.gov/authorities/childrensSubjects/sj2021060032	Frigates	0.933http://id.loc.gov/authorities/subjects/sh85052021	Frigate-birds	0.7http://id.loc.gov/authorities/subjects/sh85052024	Frigates--Models	0.609http://id.loc.gov/authorities/subjects/sh85052022	Frigate-birds, Fossil	0.5http://id.loc.gov/authorities/subjects/sh85127160	Frigate Bay, Battle of, Saint Kitts and Nevis, 1782	0.241
+08/01/2026 06:21:03 PM FROM LOOP IN LINE 273: {'query': "History, Women's, Reform", 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:03 PM output qtype LoC
+08/01/2026 06:21:03 PM HTTP request on Suggest API for history women's reform
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=history%20women%27s%20reform&searchtype=keyword&count=250 HTTP/1.1" 200 35
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=history%20women%27s%20reform&searchtype=keyword&count=250 HTTP/1.1" 200 35
+08/01/2026 06:21:03 PM Web scraping page 1 of web results for history women's reform
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /search/?q=history%20women%27s%20reform&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:03 PM search scoring output for History, Women's, Reform:
+ 
+08/01/2026 06:21:03 PM FROM LOOP IN LINE 273: {'query': 'NIVDIA', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:03 PM output qtype LoC
+08/01/2026 06:21:03 PM HTTP request on Suggest API for nivdia
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=nivdia&searchtype=keyword&count=250 HTTP/1.1" 200 19
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=nivdia&searchtype=keyword&count=250 HTTP/1.1" 200 19
+08/01/2026 06:21:03 PM Web scraping page 1 of web results for nivdia
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /search/?q=nivdia&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:03 PM search scoring output for NIVDIA:
+ 
+08/01/2026 06:21:03 PM FROM LOOP IN LINE 273: {'query': 'baking', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:03 PM output qtype LoC
+08/01/2026 06:21:03 PM HTTP request on Suggest API for baking
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:03 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=baking&searchtype=keyword&count=250 HTTP/1.1" 200 1229
+08/01/2026 06:21:03 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=baking&searchtype=keyword&count=250 HTTP/1.1" 200 1229
+08/01/2026 06:21:04 PM Web scraping page 1 of web results for baking
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /search/?q=baking&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:04 PM Recon object: Baking (1.0)
+08/01/2026 06:21:04 PM Recon object: Baking pans (0.706)
+08/01/2026 06:21:04 PM Recon object: Baking powder (0.632)
+08/01/2026 06:21:04 PM Recon object: Baking--Fiction (0.571)
+08/01/2026 06:21:04 PM Recon object: Baking--Juvenile literature (0.364)
+08/01/2026 06:21:04 PM Recon object: Baking--Vocational guidance (0.364)
+08/01/2026 06:21:04 PM Recon object: Baking Association of Canada (0.353)
+08/01/2026 06:21:04 PM Recon object: Baking & Cooking Lounge (Firm) (0.333)
+08/01/2026 06:21:04 PM Recon object: Baking New Zealand (Organisation) (0.308)
+08/01/2026 06:21:04 PM Recon object: Baking (Australian women's weekly) (0.3)
+08/01/2026 06:21:04 PM Recon object: Baking with Julia (Television program) (0.273)
+08/01/2026 06:21:04 PM Recon object: Baking Industry Association of New Zealand (0.25)
+08/01/2026 06:21:04 PM Recon object: Baking school (King Arthur Baking Company) (0.25)
+08/01/2026 06:21:04 PM search scoring output for baking:
+ http://id.loc.gov/authorities/childrensSubjects/sj2021050393	Baking	1.0http://id.loc.gov/authorities/subjects/sh85011089	Baking pans	0.706http://id.loc.gov/authorities/subjects/sh85011090	Baking powder	0.632http://id.loc.gov/authorities/subjects/sh2008117462	Baking--Fiction	0.571http://id.loc.gov/authorities/subjects/sh2009116592	Baking--Juvenile literature	0.364http://id.loc.gov/authorities/subjects/sh85011088	Baking--Vocational guidance	0.364http://id.loc.gov/authorities/names/no2002029136	Baking Association of Canada	0.353http://id.loc.gov/authorities/names/no2021107387	Baking & Cooking Lounge (Firm)	0.333http://id.loc.gov/authorities/names/no2022118174	Baking New Zealand (Organisation)	0.308http://id.loc.gov/authorities/names/no2022143140	Baking (Australian women's weekly)	0.3http://id.loc.gov/authorities/names/no2025105346	Baking with Julia (Television program)	0.273http://id.loc.gov/authorities/names/no2005098221	Baking Industry Association of New Zealand	0.25http://id.loc.gov/authorities/names/no2023016518	Baking school (King Arthur Baking Company)	0.25
+08/01/2026 06:21:04 PM FROM LOOP IN LINE 273: {'query': 'exh1bit', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:04 PM output qtype LoC
+08/01/2026 06:21:04 PM HTTP request on Suggest API for exh1bit
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=exh1bit&searchtype=keyword&count=250 HTTP/1.1" 200 20
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=exh1bit&searchtype=keyword&count=250 HTTP/1.1" 200 20
+08/01/2026 06:21:04 PM Web scraping page 1 of web results for exh1bit
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /search/?q=exh1bit&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:04 PM search scoring output for exh1bit:
+ 
+08/01/2026 06:21:04 PM FROM LOOP IN LINE 273: {'query': 'pharmacies', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:04 PM output qtype LoC
+08/01/2026 06:21:04 PM HTTP request on Suggest API for pharmacies
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=pharmacies&searchtype=keyword&count=250 HTTP/1.1" 200 23
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=pharmacies&searchtype=keyword&count=250 HTTP/1.1" 200 23
+08/01/2026 06:21:04 PM Web scraping page 1 of web results for pharmacies
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /search/?q=pharmacies&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:04 PM search scoring output for pharmacies:
+ 
+08/01/2026 06:21:04 PM FROM LOOP IN LINE 273: {'query': 'bakery', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:04 PM output qtype LoC
+08/01/2026 06:21:04 PM HTTP request on Suggest API for bakery
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=bakery&searchtype=keyword&count=250 HTTP/1.1" 200 2456
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=bakery&searchtype=keyword&count=250 HTTP/1.1" 200 2456
+08/01/2026 06:21:04 PM Web scraping page 1 of web results for bakery
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:04 PM https://id.loc.gov:443 "GET /search/?q=bakery&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:04 PM Recon object: Bakery (1.0)
+08/01/2026 06:21:04 PM Recon object: Bakery Band (0.706)
+08/01/2026 06:21:04 PM Recon object: Bakery employees (0.545)
+08/01/2026 06:21:04 PM Recon object: Bakery (Dance company) (0.429)
+08/01/2026 06:21:04 PM Recon object: Bakery (Musical group) (0.429)
+08/01/2026 06:21:04 PM Recon object: Bakery employees--Labor unions (0.333)
+08/01/2026 06:21:04 PM Recon object: Bakery Restaurant (Chicago, Ill.) (0.308)
+08/01/2026 06:21:04 PM Recon object: Bakery equipment and supplies industry (0.273)
+08/01/2026 06:21:04 PM Recon object: Bakery Lane Soup Bowl, Inc. (Middlebury, Vt.) (0.235)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, and Tobacco Workers International Union (0.176)
+08/01/2026 06:21:04 PM Recon object: Bakery and Confectionery Workers' International Union of America (0.171)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union (0.145)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, and Tobacco Workers International Union. Local 464 (Hershey, Pa.) (0.128)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, and Tobacco Workers International Union. Constitutional Convention (0.126)
+08/01/2026 06:21:04 PM Recon object: Bakery and Confectionery Workers' International Union of America. Local 464 (Hershey, Pa.) (0.125)
+08/01/2026 06:21:04 PM Recon object: Bakery and Confectionery Union and Industry International Health Benefits and Pension Funds (0.124)
+08/01/2026 06:21:04 PM Recon object: Bakery and Confectionery Workers' International Union of America. Constitutional Convention (0.124)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, and Tobacco Workers International Union. Local 155 (Waterbury, Conn.) (0.122)
+08/01/2026 06:21:04 PM Recon object: Bakery and Confectionery Workers' International Union of America. Local 155 (Waterbury, Conn.) (0.12)
+08/01/2026 06:21:04 PM Recon object: Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union. Local 464 (Hershey, Pa.) (0.11)
+08/01/2026 06:21:04 PM search scoring output for bakery:
+ http://id.loc.gov/authorities/names/n81006135	Bakery	1.0http://id.loc.gov/authorities/names/n2016034405	Bakery Band	0.706http://id.loc.gov/authorities/subjects/sh85011083	Bakery employees	0.545http://id.loc.gov/authorities/names/no2012027504	Bakery (Dance company)	0.429http://id.loc.gov/authorities/names/no2003074334	Bakery (Musical group)	0.429http://id.loc.gov/authorities/subjects/sh85136533	Bakery employees--Labor unions	0.333http://id.loc.gov/authorities/names/no2013095428	Bakery Restaurant (Chicago, Ill.)	0.308http://id.loc.gov/authorities/subjects/sh91002866	Bakery equipment and supplies industry	0.273http://id.loc.gov/authorities/names/no2010185968	Bakery Lane Soup Bowl, Inc. (Middlebury, Vt.)	0.235http://id.loc.gov/authorities/names/n85299005	Bakery, Confectionery, and Tobacco Workers International Union	0.176http://id.loc.gov/authorities/names/n85281086	Bakery and Confectionery Workers' International Union of America	0.171http://id.loc.gov/authorities/names/no99019968	Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union	0.145http://id.loc.gov/authorities/names/no2009088640	Bakery, Confectionery, and Tobacco Workers International Union. Local 464 (Hershey, Pa.)	0.128http://id.loc.gov/authorities/names/n88139982	Bakery, Confectionery, and Tobacco Workers International Union. Constitutional Convention	0.126http://id.loc.gov/authorities/names/no2009088639	Bakery and Confectionery Workers' International Union of America. Local 464 (Hershey, Pa.)	0.125http://id.loc.gov/authorities/names/n85093930	Bakery and Confectionery Union and Industry International Health Benefits and Pension Funds	0.124http://id.loc.gov/authorities/names/n88139981	Bakery and Confectionery Workers' International Union of America. Constitutional Convention	0.124http://id.loc.gov/authorities/names/n92064001	Bakery, Confectionery, and Tobacco Workers International Union. Local 155 (Waterbury, Conn.)	0.122http://id.loc.gov/authorities/names/n92063999	Bakery and Confectionery Workers' International Union of America. Local 155 (Waterbury, Conn.)	0.12http://id.loc.gov/authorities/names/no2009088641	Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union. Local 464 (Hershey, Pa.)	0.11
+08/01/2026 06:21:04 PM FROM LOOP IN LINE 273: {'query': 'Mormonism', 'type': 'LoC', 'type_strict': 'should'}
+08/01/2026 06:21:04 PM output qtype LoC
+08/01/2026 06:21:04 PM HTTP request on Suggest API for mormonism
+08/01/2026 06:21:04 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:05 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=mormonism&searchtype=keyword&count=250 HTTP/1.1" 200 180
+08/01/2026 06:21:05 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:05 PM https://id.loc.gov:443 "GET /authorities/suggest/?q=mormonism&searchtype=keyword&count=250 HTTP/1.1" 200 180
+08/01/2026 06:21:05 PM Web scraping page 1 of web results for mormonism
+08/01/2026 06:21:05 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 06:21:05 PM https://id.loc.gov:443 "GET /search/?q=mormonism&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2F HTTP/1.1" 200 None
+08/01/2026 06:21:05 PM Recon object: Mormonism (1.0)
+08/01/2026 06:21:05 PM Recon object: Mormonism Research Ministry (0.5)
+08/01/2026 06:21:05 PM search scoring output for Mormonism:
+ http://id.loc.gov/authorities/names/n90669261	Mormonism	1.0http://id.loc.gov/authorities/names/nr90019725	Mormonism Research Ministry	0.5
+08/01/2026 06:21:05 PM results being handed to openrefine: {'q0': {'result': [{'id': 'http://id.loc.gov/authorities/names/n80100092', 'name': 'Philip Glass Ensemble', 'score': '0.727', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}]}, 'q1': {'result': [{'id': 'http://id.loc.gov/authorities/childrensSubjects/sj2021060032', 'name': 'Frigates', 'score': '0.933', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85052021', 'name': 'Frigate-birds', 'score': '0.7', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85052024', 'name': 'Frigates--Models', 'score': '0.609', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85052022', 'name': 'Frigate-birds, Fossil', 'score': '0.5', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85127160', 'name': 'Frigate Bay, Battle of, Saint Kitts and Nevis, 1782', 'score': '0.241', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}]}, 'q2': {'result': []}, 'q3': {'result': []}, 'q4': {'result': [{'id': 'http://id.loc.gov/authorities/childrensSubjects/sj2021050393', 'name': 'Baking', 'score': '1.0', 'match': True, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85011089', 'name': 'Baking pans', 'score': '0.706', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85011090', 'name': 'Baking powder', 'score': '0.632', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh2008117462', 'name': 'Baking--Fiction', 'score': '0.571', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh2009116592', 'name': 'Baking--Juvenile literature', 'score': '0.364', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85011088', 'name': 'Baking--Vocational guidance', 'score': '0.364', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2002029136', 'name': 'Baking Association of Canada', 'score': '0.353', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2021107387', 'name': 'Baking & Cooking Lounge (Firm)', 'score': '0.333', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2022118174', 'name': 'Baking New Zealand (Organisation)', 'score': '0.308', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2022143140', 'name': "Baking (Australian women's weekly)", 'score': '0.3', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2025105346', 'name': 'Baking with Julia (Television program)', 'score': '0.273', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2005098221', 'name': 'Baking Industry Association of New Zealand', 'score': '0.25', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2023016518', 'name': 'Baking school (King Arthur Baking Company)', 'score': '0.25', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}]}, 'q5': {'result': []}, 'q6': {'result': []}, 'q7': {'result': [{'id': 'http://id.loc.gov/authorities/names/n81006135', 'name': 'Bakery', 'score': '1.0', 'match': True, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n2016034405', 'name': 'Bakery Band', 'score': '0.706', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85011083', 'name': 'Bakery employees', 'score': '0.545', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2012027504', 'name': 'Bakery (Dance company)', 'score': '0.429', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2003074334', 'name': 'Bakery (Musical group)', 'score': '0.429', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh85136533', 'name': 'Bakery employees--Labor unions', 'score': '0.333', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2013095428', 'name': 'Bakery Restaurant (Chicago, Ill.)', 'score': '0.308', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/subjects/sh91002866', 'name': 'Bakery equipment and supplies industry', 'score': '0.273', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2010185968', 'name': 'Bakery Lane Soup Bowl, Inc. (Middlebury, Vt.)', 'score': '0.235', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n85299005', 'name': 'Bakery, Confectionery, and Tobacco Workers International Union', 'score': '0.176', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n85281086', 'name': "Bakery and Confectionery Workers' International Union of America", 'score': '0.171', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no99019968', 'name': 'Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union', 'score': '0.145', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2009088640', 'name': 'Bakery, Confectionery, and Tobacco Workers International Union. Local 464 (Hershey, Pa.)', 'score': '0.128', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n88139982', 'name': 'Bakery, Confectionery, and Tobacco Workers International Union. Constitutional Convention', 'score': '0.126', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2009088639', 'name': "Bakery and Confectionery Workers' International Union of America. Local 464 (Hershey, Pa.)", 'score': '0.125', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n85093930', 'name': 'Bakery and Confectionery Union and Industry International Health Benefits and Pension Funds', 'score': '0.124', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n88139981', 'name': "Bakery and Confectionery Workers' International Union of America. Constitutional Convention", 'score': '0.124', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n92064001', 'name': 'Bakery, Confectionery, and Tobacco Workers International Union. Local 155 (Waterbury, Conn.)', 'score': '0.122', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/n92063999', 'name': "Bakery and Confectionery Workers' International Union of America. Local 155 (Waterbury, Conn.)", 'score': '0.12', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/no2009088641', 'name': 'Bakery, Confectionery, Tobacco Workers, and Grain Millers International Union. Local 464 (Hershey, Pa.)', 'score': '0.11', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}]}, 'q8': {'result': [{'id': 'http://id.loc.gov/authorities/names/n90669261', 'name': 'Mormonism', 'score': '1.0', 'match': True, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}, {'id': 'http://id.loc.gov/authorities/names/nr90019725', 'name': 'Mormonism Research Ministry', 'score': '0.5', 'match': False, 'type': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}]}]}}
+08/01/2026 06:21:05 PM 127.0.0.1 - - [01/Aug/2026 18:21:05] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/names/n80100092 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:07 PM 127.0.0.1 - - [01/Aug/2026 18:21:07] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:08 PM 127.0.0.1 - - [01/Aug/2026 18:21:08] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:08 PM 127.0.0.1 - - [01/Aug/2026 18:21:08] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:09 PM 127.0.0.1 - - [01/Aug/2026 18:21:09] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:10 PM 127.0.0.1 - - [01/Aug/2026 18:21:10] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:11 PM 127.0.0.1 - - [01/Aug/2026 18:21:11] "[35m[1mGET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1[0m" 500 -
+08/01/2026 06:21:11 PM 127.0.0.1 - - [01/Aug/2026 18:21:11] "[36mGET /reconcile/preview/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08/01/2026 06:21:54 PM 
+
+starting new test
+08/01/2026 06:21:54 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 06:21:54 PM [33mPress CTRL+C to quit[0m
+08/01/2026 06:21:54 PM  * Restarting with stat
+08/01/2026 06:21:54 PM 
+
+starting new test
+08/01/2026 06:21:54 PM  * Debugger is active!
+08/01/2026 06:21:54 PM  * Debugger PIN: 133-657-144
+08/01/2026 06:21:55 PM 127.0.0.1 - - [01/Aug/2026 18:21:55] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1" 200 -
+08/01/2026 06:21:55 PM 127.0.0.1 - - [01/Aug/2026 18:21:55] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1" 200 -
+08/01/2026 06:21:55 PM 127.0.0.1 - - [01/Aug/2026 18:21:55] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -
+08/01/2026 06:21:56 PM 127.0.0.1 - - [01/Aug/2026 18:21:56] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -
+08/01/2026 06:21:56 PM 127.0.0.1 - - [01/Aug/2026 18:21:56] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1" 200 -
+08/01/2026 06:21:58 PM 127.0.0.1 - - [01/Aug/2026 18:21:58] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1" 200 -
+08/01/2026 06:21:59 PM 127.0.0.1 - - [01/Aug/2026 18:21:59] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052024 HTTP/1.1" 200 -
+08/01/2026 06:21:59 PM 127.0.0.1 - - [01/Aug/2026 18:21:59] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1" 200 -
+08/01/2026 06:21:59 PM 127.0.0.1 - - [01/Aug/2026 18:21:59] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -
+08/01/2026 06:22:04 PM 127.0.0.1 - - [01/Aug/2026 18:22:04] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -
+08/01/2026 06:22:04 PM 127.0.0.1 - - [01/Aug/2026 18:22:04] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1" 200 -
+08/01/2026 06:22:04 PM 127.0.0.1 - - [01/Aug/2026 18:22:04] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -
+08/01/2026 06:22:05 PM 127.0.0.1 - - [01/Aug/2026 18:22:05] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/subjects/sh85052021 HTTP/1.1" 200 -
+08/01/2026 06:22:06 PM 127.0.0.1 - - [01/Aug/2026 18:22:06] "GET /reconcile/preview/?url=http://id.loc.gov/authorities/childrensSubjects/sj2021060032 HTTP/1.1" 200 -

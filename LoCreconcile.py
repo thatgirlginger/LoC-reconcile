@@ -6,13 +6,8 @@
 #   Digitization Program Office
 #   Office of the Chief Information Officer
 #   Smithsonian Institution
-# 
 
-from flask import Flask
-from flask import request
-from flask import jsonify
-from flask import json
-from flask import url_for
+from flask import Flask, request, jsonify, json, url_for, render_template
 
 # caching
 from flask_caching import Cache
@@ -25,8 +20,16 @@ from urllib.parse import quote
 from lxml import etree
 from bs4 import BeautifulSoup
 import logging
+import json
 # from reconciliation import SearchLoC, Recon
 
+
+#logging.basicConfig(
+#    filename="reconcile.log",
+#    filemode="a",
+#    format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
+#    level=logging.DEBUG
+#)
 
 sys.setrecursionlimit(10000)
 ver = "2023-12-12"
@@ -43,7 +46,7 @@ cache = Cache(app)
 
 
 class Recon:
-    
+
     def __init__(self, score):
         """Turns the raw lists of scores and term-id pairs into objects"""
         self.score = score[0]
@@ -75,9 +78,6 @@ class Recon:
 
 class SearchLoC:
 
-    logging.basicConfig(level=logging.INFO)
-    LOGGER = logging.getLogger(__name__)
-
     def __init__(self, term, term_type=''):
         self._term_type = term_type
         self.term = term
@@ -107,10 +107,13 @@ class SearchLoC:
             self.term_type = ''
 
     def search_terms(self):
-        """Looks for a term using the suggest API"""
-        self.LOGGER.debug("HTTP request on Suggest API for {}".format(self.term))
-        response = requests.get(self.suggest_uri + quote(self.term))
-        result = response.json()
+        """Looks for a term using the suggest API, implements both left-anchored and keyword searches"""
+        logging.debug(f"HTTP request on Suggest API for {self.term}")
+        kwresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
+        laresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
+        full_result = kwresponse.json() + laresponse.json()
+        result = []
+        [result.append(a) for a in full_result if a not in result]
         return self.__process_results(result)
 
     @staticmethod
@@ -124,17 +127,11 @@ class SearchLoC:
                 id_pairs.append((term_name, term_id))
         return id_pairs
 
-    def did_you_mean(self):
-        dym_base = "https://id.loc.gov/authorities" + self.term_type + "/didyoumean/?label="
-        dym_url = dym_base + quote(self.term)
-        self.LOGGER.debug("querying didyoumean with URL {}".format(str(dym_url)))
-        response = requests.get(dym_url)
-        tree = etree.fromstring(response.content)
-        return [(child.text, child.attrib['uri']) for child in iter(tree)]
+    
 
     def search_terms_raw(self):
         """Switches to looking for a term by scraping the first web page of search results"""
-        self.LOGGER.debug("Web scraping page 1 of web results...".format(self.term))
+        logging.debug(f"Web scraping page 1 of web results for {self.term}")
         search_uri = self.__raw_uri_start + quote(self.term) + self.__raw_uri_end
         response = requests.get(search_uri)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -152,17 +149,17 @@ class SearchLoC:
                 id_pairs.append((heading, term_id))
         return id_pairs
 
-    def full_search(self, suggest=True, didyoumean=True, scrape=True):
-        """implement all 3 search methods (suggest, did you mean, and web sraping"""
+    def full_search(self, suggest=True, scrape=True):
+        """implements left-anchored and keyword suggestions, as well as scraping"""
         results = None
-        if not suggest and not didyoumean and not scrape:
+        if not suggest and not scrape:
             return results
-        if suggest:
+        if suggest and not scrape:
             results = self.search_terms()  # start with suggest
-        if not results and didyoumean:
-            results = self.did_you_mean()
-        if not results and scrape:
+        if not suggest and scrape:
             results = self.search_terms_raw()  # wasn't found with "suggest", try scraping first page instead
+        if suggest and scrape:
+            results = self.search_terms() + self.search_terms_raw()
         return results
 
     def get_term_uri(self, term_id, extension="html", include_ext=False):
@@ -218,21 +215,17 @@ def preprocess(token):
         token = token[:-1]
     return token.lower().lstrip().rstrip().replace("--", " ").replace(", ", " ")\
         .replace("\t", "").replace("\n", "")
-    # may add other preprocessing steps later
 
-
-@cache.cached()
-def search(search_in, query_type='', limit=3):
+def search(search_in, query_type='', limit=8):
     scores = []
     term = preprocess(search_in)
     query_result = SearchLoC(term=term, term_type=query_type.lower()).full_search(suggest=True,
-                                                                                  didyoumean=True,
                                                                                   scrape=True)
     recon_ = Recon.reconcile(search_in, query_result, sort=True, limit=limit)
     for r in recon_:
         match = False
         recon_result = Recon(r)
-        # logging.info("Recon object: " + str(recon_result))
+        logging.info("Recon object: " + str(recon_result))
         if recon_result.score == "1.0":
             match = True  # auto-match for perfect results
 
@@ -259,15 +252,16 @@ def jsonpify(obj):
 @app.route("/reconcile/LoC", methods=['POST', 'GET'])
 def reconcile():
     queries = request.form.get('queries')
+    logging.info(f"beginning of reconciliation function for input: {queries}")
     if queries:
-        # logging.info("queries: " + str(queries))
+        logging.info("queries: " + str(queries))
         queries = json.loads(queries)
         results = {}
         for (key, query) in queries.items():
             qtype = query.get('type')
             if qtype is None:
                 return jsonpify(metadata)
-            limit = 3
+            limit = 8
             if 'limit' in query:
                 limit = int(query['limit'])
             data = search(query['query'], query_type=qtype, limit=limit)
@@ -276,67 +270,11 @@ def reconcile():
     return jsonpify(metadata)
 
 
-@cache.memoize()
-def url_prev(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    text_body = soup.find(id="tab1")
-    text_body.find("div", class_="bf-render-right").decompose()
-    new_link = soup.new_tag("style")
-    # Relevant css from loc_standard_v2_w.css
-    new_link.string = """a#skip {
-                position: absolute;
-                top:-100px;
-                }
-                a:link {
-                color: #036;
-                text-decoration: underline;
-                }
-                a:visited {
-                color: #609;
-                }
-                a:focus,
-                a:hover,
-                a:active {
-                color: #36c;
-                text-decoration: underline;
-                }
-                body {
-                font-size: 75%; /* 12px */
-                line-height: 1.4;
-                font-family:Arial, Helvetica, sans-serif;
-                color: #333;
-                background-color: #fff;
-                }
-                h1, h2, h3 {font-family:Arial, Helvetica, sans-serif;}
-                h1 {font-size: 1.6em;color:#343268;}
-                h2, h3 {font-size: 1.2em;margin: 0 0 0.4em 0;color:#36C;}
-                h3, h4, h5, h6 {color:#666;}
-                h4 {font-size: 1em;margin: 0 0 0.2em 0;color:#333;}
-                h5 {font-size: 1em;}
-                h6 {font-size: 1em;}
-                p, dl {margin: 0 0 1.25em 0;}
-                ul, ol {margin: 0 0 1.25em 0; padding-left: 2.5em;}
-                dt {margin: 0 0 0.5em 0;font-weight:bold;}
-                dd {margin: 0 0 0.5em 2.5em;}
-                pre, code, tt {margin: 0 0 1em 0; font-family:"Courier New", Courier, monospace;}"""
-    text_body.insert(0, new_link)
-    for a_tag in text_body.find_all('a'):
-        a_string = a_tag.string
-        new_div = soup.new_tag("div")
-        new_div.string = a_string
-        a_tag.replace_with(new_div)
-    for img in text_body.find_all('img'):
-        img.decompose()
-    return text_body
-
-
 @app.route("/reconcile/preview/", methods=['GET'])
 def recon_preview():
+    # due to LoC's cloudflare configuration, returning any preview of the LoC page returns 403
     name_url = request.args.get('url')
-    page_preview = url_prev(name_url)
-    return str(page_preview)
-
+    return str(name_url)
 
 @app.route("/")
 def render_index():
@@ -345,5 +283,5 @@ def render_index():
 
 if __name__ == "__main__":
     print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
-    app.run(debug=False)
-    # default service URL: http://127.0.0.1:5000/reconcile/LoC
+    app.run(debug=True)
+    ## default service URL: http://127.0.0.1:5000/reconcile/LoC

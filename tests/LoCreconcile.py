@@ -8,11 +8,7 @@
 #   Smithsonian Institution
 #TODO: add note here when ready for pull request
 
-from flask import Flask
-from flask import request
-from flask import jsonify
-from flask import json
-from flask import url_for
+from flask import Flask, request, jsonify, json, url_for, render_template
 
 # caching
 from flask_caching import Cache
@@ -278,13 +274,11 @@ def reconcile():
     if queries:
         logging.info("queries: " + str(queries))
         queries = json.loads(queries)
-        # qtype = queries.get('type')
-        # logging.info(f"output qtype: {qtype}")
         results = {}
         for (key, query) in queries.items():
-            logging.info(f"FROM LOOP IN LINE 273: {query}")
+            #logging.info(f"FROM LOOP IN LINE 273: {query}")
             qtype = query.get('type')
-            logging.info(f"output qtype {qtype}")
+            #logging.info(f"output qtype {qtype}")
             if qtype is None:
                 return jsonpify(metadata)
             limit = 100
@@ -292,72 +286,16 @@ def reconcile():
                 limit = int(query['limit'])
             data = search(query['query'], query_type=qtype, limit=limit)
             results[key] = {"result": data}
-        logging.debug(f"results being handed to openrefine: {results}")
+        #logging.debug(f"results being handed to openrefine: {results}")
         return jsonpify(results)
     return jsonpify(metadata)
 
 
-#@cache.memoize()
-def url_prev(url):
-    response = requests.get('url')
-    soup = BeautifulSoup(response.text, 'html.parser')
-    text_body = soup.find(id="tab1")
-    text_body.find("div", class_="bf-render-right").decompose()
-    new_link = soup.new_tag("style")
-    # Relevant css from loc_standard_v2_w.css
-    new_link.string = """a#skip {
-                position: absolute;
-                top:-100px;
-                }
-                a:link {
-                color: #036;
-                text-decoration: underline;
-                }
-                a:visited {
-                color: #609;
-                }
-                a:focus,
-                a:hover,
-                a:active {
-                color: #36c;
-                text-decoration: underline;
-                }
-                body {
-                font-size: 75%; /* 12px */
-                line-height: 1.4;
-                font-family:Arial, Helvetica, sans-serif;
-                color: #333;
-                background-color: #fff;
-                }
-                h1, h2, h3 {font-family:Arial, Helvetica, sans-serif;}
-                h1 {font-size: 1.6em;color:#343268;}
-                h2, h3 {font-size: 1.2em;margin: 0 0 0.4em 0;color:#36C;}
-                h3, h4, h5, h6 {color:#666;}
-                h4 {font-size: 1em;margin: 0 0 0.2em 0;color:#333;}
-                h5 {font-size: 1em;}
-                h6 {font-size: 1em;}
-                p, dl {margin: 0 0 1.25em 0;}
-                ul, ol {margin: 0 0 1.25em 0; padding-left: 2.5em;}
-                dt {margin: 0 0 0.5em 0;font-weight:bold;}
-                dd {margin: 0 0 0.5em 2.5em;}
-                pre, code, tt {margin: 0 0 1em 0; font-family:"Courier New", Courier, monospace;}"""
-    text_body.insert(0, new_link)
-    for a_tag in text_body.find_all('a'):
-        a_string = a_tag.string
-        new_div = soup.new_tag("div")
-        new_div.string = a_string
-        a_tag.replace_with(new_div)
-    for img in text_body.find_all('img'):
-        img.decompose()
-    return text_body
-
-
 @app.route("/reconcile/preview/", methods=['GET'])
 def recon_preview():
+    # due to LoC's cloudflare configuration, returning any preview of the LoC page returns 403
     name_url = request.args.get('url')
-    page_preview = url_prev(name_url)
-    return str(page_preview)
-
+    return str(name_url)
 
 #TODO: code an 'intensive' mode that removes stopwords and searches individual terms
 
