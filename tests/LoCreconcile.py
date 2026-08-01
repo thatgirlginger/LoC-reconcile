@@ -26,6 +26,7 @@ from lxml import etree
 from bs4 import BeautifulSoup
 import logging
 import json
+import json
 # from reconciliation import SearchLoC, Recon
 
 
@@ -239,7 +240,7 @@ def search(search_in, query_type='', limit=100):
     for r in recon_:
         match = False
         recon_result = Recon(r)
-        # logging.info("Recon object: " + str(recon_result))
+        logging.info("Recon object: " + str(recon_result))
         if recon_result.score == "1.0":
             match = True  # auto-match for perfect results
 
@@ -250,6 +251,11 @@ def search(search_in, query_type='', limit=100):
             "match": match,
             "type": metadata['defaultTypes'],
         })
+    # begin score logging here
+    dbug = []
+    for score in scores:
+        dbug.append(f"{score[id]}\t{score[name]}\t{score[score]}")
+    logging.info(f"search scoring output for {search_in}:\n {"".join(dbug)}")
     return scores
 
 
@@ -258,6 +264,7 @@ def jsonpify(obj):
         callback = request.args['callback']
         response = app.make_response("%s(%s)" % (callback, json.dumps(obj)))
         response.mimetype = "text/javascript"
+        logging.debug(f"response for input: {obj}")
         return response
     except KeyError:
         return jsonify(obj)
@@ -265,10 +272,10 @@ def jsonpify(obj):
 
 @app.route("/reconcile/LoC", methods=['POST', 'GET'])
 def reconcile():
-    queries = request.form.getlist('queries')
-    logging.debug
-    logging.debug(f"beginning of reconciliation function for input: {queries}")
+    queries = request.form.get('queries')
+    logging.info(f"beginning of reconciliation function for input: {queries}")
     if queries:
+        logging.info("queries: " + str(queries))
         queries = json.loads(queries)
         qtype = queries.get('type')
         logging.info(f"output qtype: {qtype}")
@@ -276,13 +283,14 @@ def reconcile():
         for (key, query) in queries.items():
             logging.info(f"FROM LOOP IN LINE 273: {query}")
             qtype = query.get('type')
-            logging.info(f"output qtype: {qtype}")
+            logging.info(f"output qtype {qtype}")
             if qtype is None:
                 return jsonpify(metadata)
-            #if 'limit' in query:
-            #    limit = int(query['limit'])
-            data = search(query['query'], query_type=qtype)
-            results[key] = {'result':data}
+            # limit = 3
+            # if 'limit' in query:
+            #     limit = int(query['limit'])
+            data = search(query['query'], query_type=qtype) #, limit=limit)
+            results[key] = {"result": data}
         return jsonpify(results)
     return jsonpify(metadata)
 
@@ -359,4 +367,4 @@ def render_index():
 if __name__ == "__main__":
     print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
     app.run(debug=True)
-    #default service URL: http://127.0.0.1:5000/reconcile/LoC
+    ## default service URL: http://127.0.0.1:5000/reconcile/LoC
