@@ -1,0 +1,92 @@
+08/01/2026 02:37:02 PM 
+
+starting new test
+08/01/2026 02:37:02 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 02:37:02 PM [33mPress CTRL+C to quit[0m
+08/01/2026 02:37:22 PM 127.0.0.1 - - [01/Aug/2026 14:37:22] "GET /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 02:37:22 PM response for input: {'name': 'LC Reconciliation Service', 'identifierSpace': 'http://localhost/identifier', 'schemaSpace': 'http://localhost/schema', 'defaultTypes': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}], 'view': {'url': '{{id}}'}, 'preview': {'height': 440, 'width': 600, 'url': 'http://127.0.0.1:5000/reconcile/preview/?url={{id}}'}}
+08/01/2026 02:37:22 PM 127.0.0.1 - - [01/Aug/2026 14:37:22] "GET /reconcile/LoC?callback=jQuery36008462887150447648_1785609340202&_=1785609340203 HTTP/1.1" 200 -
+08/01/2026 02:37:24 PM 127.0.0.1 - - [01/Aug/2026 14:37:24] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 02:40:24 PM 
+
+starting new test
+08/01/2026 02:40:24 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 02:40:24 PM [33mPress CTRL+C to quit[0m
+08/01/2026 02:40:24 PM  * Restarting with stat
+08/01/2026 02:40:24 PM 
+
+starting new test
+08/01/2026 02:40:24 PM  * Debugger is active!
+08/01/2026 02:40:24 PM  * Debugger PIN: 133-657-144
+08/01/2026 02:40:33 PM 127.0.0.1 - - [01/Aug/2026 14:40:33] "GET /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 02:40:33 PM 127.0.0.1 - - [01/Aug/2026 14:40:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+08/01/2026 02:40:43 PM 127.0.0.1 - - [01/Aug/2026 14:40:43] "GET / HTTP/1.1" 200 -
+08/01/2026 02:40:43 PM 127.0.0.1 - - [01/Aug/2026 14:40:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+08/01/2026 02:41:45 PM 127.0.0.1 - - [01/Aug/2026 14:41:45] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:32:00 PM 
+
+starting new test
+08/01/2026 03:32:00 PM [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+08/01/2026 03:32:00 PM [33mPress CTRL+C to quit[0m
+08/01/2026 03:32:00 PM  * Restarting with stat
+08/01/2026 03:32:00 PM 
+
+starting new test
+08/01/2026 03:32:00 PM  * Debugger is active!
+08/01/2026 03:32:00 PM  * Debugger PIN: 133-657-144
+08/01/2026 03:32:16 PM 127.0.0.1 - - [01/Aug/2026 15:32:16] "GET /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:32:16 PM response for input: {'name': 'LC Reconciliation Service', 'identifierSpace': 'http://localhost/identifier', 'schemaSpace': 'http://localhost/schema', 'defaultTypes': [{'id': 'Names', 'name': 'Library of Congress Name Authority File'}, {'id': 'Subjects', 'name': 'Library of Congress Subject Headings'}, {'id': 'LoC', 'name': 'LCNAF & LCSH'}], 'view': {'url': '{{id}}'}, 'preview': {'height': 440, 'width': 600, 'url': 'http://127.0.0.1:5000/reconcile/preview/?url={{id}}'}}
+08/01/2026 03:32:16 PM 127.0.0.1 - - [01/Aug/2026 15:32:16] "GET /reconcile/LoC?callback=jQuery37105486326301624095_1785612457575&_=1785612457576 HTTP/1.1" 200 -
+08/01/2026 03:32:18 PM 127.0.0.1 - - [01/Aug/2026 15:32:18] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:32:23 PM 127.0.0.1 - - [01/Aug/2026 15:32:23] "[35m[1mPOST /reconcile/LoC HTTP/1.1[0m" 500 -
+08/01/2026 03:33:04 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 03:33:04 PM  * Restarting with stat
+08/01/2026 03:33:04 PM 
+
+starting new test
+08/01/2026 03:33:04 PM  * Debugger is active!
+08/01/2026 03:33:04 PM  * Debugger PIN: 133-657-144
+08/01/2026 03:33:11 PM 127.0.0.1 - - [01/Aug/2026 15:33:11] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:33:14 PM 127.0.0.1 - - [01/Aug/2026 15:33:14] "[35m[1mPOST /reconcile/LoC HTTP/1.1[0m" 500 -
+08/01/2026 03:33:38 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 03:33:38 PM  * Restarting with stat
+08/01/2026 03:33:38 PM 
+
+starting new test
+08/01/2026 03:33:38 PM  * Debugger is active!
+08/01/2026 03:33:38 PM  * Debugger PIN: 133-657-144
+08/01/2026 03:33:50 PM 127.0.0.1 - - [01/Aug/2026 15:33:50] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:33:54 PM HTTP request on Suggest API for nivdia
+08/01/2026 03:33:54 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 03:33:54 PM https://id.loc.gov:443 "GET /authorities/subjects/suggest/?q=nivdia&searchtype=keyword&count=250 HTTP/1.1" 200 19
+08/01/2026 03:33:54 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 03:33:54 PM https://id.loc.gov:443 "GET /authorities/subjects/suggest/?q=nivdia&searchtype=keyword&count=250 HTTP/1.1" 200 19
+08/01/2026 03:33:54 PM Web scraping page 1 of web results...
+08/01/2026 03:33:54 PM Starting new HTTPS connection (1): id.loc.gov:443
+08/01/2026 03:33:55 PM https://id.loc.gov:443 "GET /search/?q=nivdia&q=cs%3Ahttp%3A%2F%2Fid.loc.gov%2Fauthorities%2Fsubjects HTTP/1.1" 200 None
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM Cache used for key: view//reconcile/LoC
+08/01/2026 03:33:55 PM 127.0.0.1 - - [01/Aug/2026 15:33:55] "POST /reconcile/LoC HTTP/1.1" 200 -
+08/01/2026 03:34:24 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 03:34:24 PM  * Restarting with stat
+08/01/2026 03:34:25 PM 
+
+starting new test
+08/01/2026 03:34:25 PM  * Debugger is active!
+08/01/2026 03:34:25 PM  * Debugger PIN: 133-657-144
+08/01/2026 03:35:36 PM  * Detected change in '/home/gingermae/Documents/programming/smithsonian/LoC-reconcile/tests/LoCreconcile.py', reloading
+08/01/2026 03:35:36 PM  * Restarting with stat
+08/01/2026 03:35:36 PM 
+
+starting new test
+08/01/2026 03:35:36 PM  * Debugger is active!
+08/01/2026 03:35:36 PM  * Debugger PIN: 133-657-144

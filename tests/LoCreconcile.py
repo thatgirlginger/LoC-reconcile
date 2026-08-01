@@ -120,7 +120,7 @@ class SearchLoC:
     def search_terms(self):
         """Looks for a term using the suggest API, implements both left-anchored and keyword searches"""
         # tested, works
-        logging.DEBUG(f"HTTP request on Suggest API for {self.term}")
+        logging.debug(f"HTTP request on Suggest API for {self.term}")
         kwresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
         laresponse = requests.get(self.suggest_uri + quote(self.term) + "&searchtype=keyword&count=250")
         full_result = kwresponse.json() + laresponse.json()
@@ -240,7 +240,7 @@ def search(search_in, query_type='', limit=3):
     for r in recon_:
         match = False
         recon_result = Recon(r)
-        # logging.info("Recon object: " + str(recon_result))
+        logging.info("Recon object: " + str(recon_result))
         if recon_result.score == "1.0":
             match = True  # auto-match for perfect results
 
@@ -259,6 +259,7 @@ def jsonpify(obj):
         callback = request.args['callback']
         response = app.make_response("%s(%s)" % (callback, json.dumps(obj)))
         response.mimetype = "text/javascript"
+        logging.debug(f"response for input: {obj}")
         return response
     except KeyError:
         return jsonify(obj)
@@ -268,17 +269,17 @@ def jsonpify(obj):
 def reconcile():
     queries = request.form.get('queries')
     if queries:
-        # logging.info("queries: " + str(queries))
+        logging.info("queries: " + str(queries))
         queries = json.loads(queries)
         results = {}
         for (key, query) in queries.items():
             qtype = query.get('type')
             if qtype is None:
                 return jsonpify(metadata)
-            limit = 3
-            if 'limit' in query:
-                limit = int(query['limit'])
-            data = search(query['query'], query_type=qtype, limit=limit)
+            # limit = 3
+            # if 'limit' in query:
+            #     limit = int(query['limit'])
+            data = search(query['query'], query_type=qtype) #, limit=limit)
             results[key] = {"result": data}
         return jsonpify(results)
     return jsonpify(metadata)
@@ -353,7 +354,7 @@ def render_index():
     return "LoC Reconciliation Service is running at this port!"
 
 
-#if __name__ == "__main__":
-#    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
-#    app.run(debug=False)
-    # default service URL: http://127.0.0.1:5000/reconcile/LoC
+if __name__ == "__main__":
+    print("\n LoC Reconciliation Service\n https://github.com/Smithsonian/LoC-reconcile/\n   ver: {}\n\n Use the address: http://127.0.0.1:5000/reconcile/LoC\n".format(ver))
+    app.run(debug=True)
+    ## default service URL: http://127.0.0.1:5000/reconcile/LoC
