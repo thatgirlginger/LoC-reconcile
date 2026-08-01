@@ -1,4 +1,12 @@
 ## Library of Congress Reconciliation Service for OpenRefine
+A fork of a fork of the Library of Congress Reconciliation Service
+This version removes the deprecated didyoumean API, replaces the deprecated suggest 1.0 with the suggest 2.0 (with both keyword and left-anchored) searches
+
+This version also fixes some bugs between the Flask configuration and OpenRefine's expected data format
+
+In lieu of a did-you-mean functionality, this version will use the nltk library. It will also implement an intensive mode, using nltk to search by word stems
+
+### Addendum to the Original README
 
 This repository is a fork of the original at: https://github.com/mphilli/LoC-reconcile
 
