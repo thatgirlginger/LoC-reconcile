@@ -26,7 +26,7 @@ and for people who would prefer '''
 class Helpers:
     def __init__(self, text):
         self.text = text
-    
+    # demo phrase: "A Heart Surrounded By Trees With The Word 'Environment'"
     def remove_stops(self):
         # if istype list or string, modify
         tokens = word_tokenize(self.text.lower())
