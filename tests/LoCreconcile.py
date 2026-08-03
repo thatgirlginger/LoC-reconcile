@@ -22,7 +22,6 @@ from lxml import etree
 from bs4 import BeautifulSoup
 import logging
 import json
-import json
 # from reconciliation import SearchLoC, Recon
 
 
