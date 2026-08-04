@@ -1,5 +1,6 @@
 import nltk
 import difflib
+import string
 
 from nltk.stem import *
 from nltk.metrics.distance import jaccard_distance
@@ -12,7 +13,10 @@ nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('punkt_tab')
 
-from tests.searches import *
+try:
+    from tests.searches import *
+except:
+    print("test searches not configured in yet, ignore unless that's an issue")
 
 '''this module is intended to replace LoC's didyoumean API, as there is no suitable open-source or fully free alternative
 
@@ -30,8 +34,10 @@ class Helpers:
     def remove_stops(self):
         # if istype list or string, modify
         tokens = word_tokenize(self.text.lower())
-        stop_words = set(stopwords.words('english'))
+        ignore_chars = stopwords.words('english') + list(string.punctuation)
         return [word for word in tokens if word not in stop_words]
+
+# remember: every function needs the original phrase as well to operate
 
 # split phrases; based on punctuation or space; return anything that scores above a certain mark
 # sim_ratio = str(round(float(difflib.SequenceMatcher(
