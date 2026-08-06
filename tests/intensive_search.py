@@ -3,7 +3,7 @@ import difflib
 import string
 
 from nltk.stem import *
-from nltk.metrics.distance import jaccard_distance
+from nltk.metrics.distance import jaccard_distance, edit_distance
 from nltk.corpus import words, stopwords
 from nltk.tokenize import word_tokenize
 from nltk.util import ngrams
@@ -12,11 +12,6 @@ nltk.download('words')
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('punkt_tab')
-
-try:
-    from tests.searches import *
-except:
-    print("test searches not configured in yet, ignore unless that's an issue")
 
 '''this module is intended to replace LoC's didyoumean API, as there is no suitable open-source or fully free alternative
 
@@ -35,9 +30,26 @@ class Helpers:
         # if istype list or string, modify
         tokens = word_tokenize(self.text.lower())
         ignore_chars = stopwords.words('english') + list(string.punctuation)
-        return [word for word in tokens if word not in stop_words]
+        return [word for word in tokens if word not in ignore_chars]
 
-# remember: every function needs the original phrase as well to operate
+
+class CorrectionMethods:
+    def __init__(self, phrase):
+        self.phrase = phrase
+        self.correct_words = words.words()
+
+    def jaccard_corrections(self):
+         # if is not type list?
+        corrected = []
+        for word in self.phrase:
+            temp = [(jaccard_distance(set(ngrams(word, 2)),
+                                    set(ngrams(w, 2))), w)
+                    for w in self.correct_words if w[0]==word[0]]
+            corrected.append(sorted(temp, key=lambda val:val[0])[0][1])
+        return corrected
+    def edit_corrections(self):
+
+        pass
 
 # split phrases; based on punctuation or space; return anything that scores above a certain mark
 # sim_ratio = str(round(float(difflib.SequenceMatcher(
